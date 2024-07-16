@@ -15,11 +15,11 @@ function changeColorContainer(){
     
     return circle.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`
 }
-   alert('clicked')
+   //alert('clicked')
    setInterval(changeColor, 2000)
    
    setTimeout(()=>{
     circle.removeEventListener('click', changeColorContainer)
-    alert('removed')
+    //alert('removed')
 }, 3000)
 }
