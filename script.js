@@ -1,4 +1,5 @@
-var sound = new Audio('sound.mp3');
+document.addEventListener('DOMContentLoaded', () => {
+    var sound = new Audio('sound.mp3');
 const body = document.getElementById('body');
 const state = document.getElementById('state');
 
@@ -43,3 +44,5 @@ function rightColor() {
 function randomColor() {
     return Math.floor(Math.random() * 256);
 }
+
+})
