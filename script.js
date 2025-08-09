@@ -1,25 +1,45 @@
-const circle = document.querySelector('#circle')
-const btn = document.querySelector('#btn')
-var sound = new Audio('sound.mp3')
+var sound = new Audio('sound.mp3');
+const body = document.getElementById('body');
+const state = document.getElementById('state');
 
-circle.addEventListener('click', changeColorContainer)
+let isPlaying = false;
+let intervalId = null;
 
-function changeColorContainer(){
-    function changeColor(randR, randG, randB){
-    
-    sound.play()
+state.textContent = 'Play';
 
-    randR = Math.floor(Math.random()*255)
-    randG = Math.floor(Math.random()*255)
-    randB = Math.floor(Math.random()*255)
-    
-    return circle.style.backgroundColor = `rgb(${randR}, ${randG}, ${randB})`
+state.addEventListener('click', function () {
+    if (!isPlaying) {
+        isPlaying = true;
+        state.textContent = 'Stop';
+        play()
+        intervalId = setInterval(play, 2000);
+    } else {
+        isPlaying = false;
+        state.textContent = 'Play';
+        stop();
+        clearInterval(intervalId);
+    }
+});
+
+function play() {
+    sound.play();
+    body.style.background = `linear-gradient(270deg, ${leftColor()}, ${rightColor()})`;
 }
-   //alert('clicked')
-   setInterval(changeColor, 2000)
-   
-   setTimeout(()=>{
-    circle.removeEventListener('click', changeColorContainer)
-    //alert('removed')
-}, 3000)
+
+function stop() {
+    sound.pause();
+    sound.currentTime = 0;
+    body.style.background = 'black';
+}
+
+function leftColor() {
+    return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+}
+
+function rightColor() {
+    return `rgb(${randomColor()}, ${randomColor()}, ${randomColor()})`;
+}
+
+function randomColor() {
+    return Math.floor(Math.random() * 256);
 }
