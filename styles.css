@@ -20,7 +20,12 @@ section {
 header {
     margin-top: 40px;
     text-align: center;
-    padding-inline: 20px;
+    width: 100%;
+    height: auto;
+}
+
+p {
+    padding-inline: 10px;
 }
 
 button {
