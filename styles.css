@@ -3,22 +3,39 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    /*background: linear-gradient(270deg, black, gray*/
     background: black;
-  );
+    color: white;
+    transition: all 0.12s ease;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .12);
+    height: 100vh;
+    width: 100%; 
 }
 
 header {
     margin-top: 40px;
-    color: white;
     text-align: center;
 }
 
-#circle {
-    width: 300px;
-    height: 300px;
+#state {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
     margin: 80px auto;
-    background: orange;
+    background: rgba(0, 0, 0, .4);
     border-radius: 100%;
-    /*box-shadow: 0px 0px 4px 2px black;*/
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, .12);
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid #333;
+    color: white;
+}
+
+#state:hover {
+    transform: scale(1.2);
 }
